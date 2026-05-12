@@ -786,3 +786,278 @@ main {
 .pf-card img {
 	cursor: zoom-in;
 }
+/* ===== MOBILE / RESPONSIVE FIXES =====
+   These final overrides must stay at the bottom of the file because earlier
+   mobile rules were being overwritten by duplicate desktop layout rules.
+*/
+
+html,
+body {
+	min-height: 100%;
+}
+
+body {
+	min-height: 100dvh;
+	height: auto;
+}
+
+img {
+	max-width: 100%;
+}
+
+@media (max-width: 900px) {
+	body {
+		overflow-x: hidden;
+		height: auto;
+		min-height: 100dvh;
+	}
+
+	header {
+		position: sticky;
+		top: 0;
+		padding: 12px 16px;
+		gap: 10px 16px;
+		align-items: center;
+	}
+
+	.nav-center {
+		position: static;
+		transform: none;
+		order: 2;
+		width: auto;
+		gap: 12px;
+	}
+
+	.nav-left {
+		order: 1;
+		width: 100%;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 10px 18px;
+	}
+
+	.brand-name {
+		order: 0;
+		width: 100%;
+		text-align: center;
+		line-height: 1;
+	}
+
+	main {
+		margin-top: 0;
+		height: auto;
+		min-height: calc(100dvh - 116px);
+		overflow: visible;
+	}
+
+	.page {
+		display: none;
+		position: relative;
+		height: auto;
+		min-height: calc(100dvh - 116px);
+		padding: 18px 16px 32px;
+		overflow: visible;
+	}
+
+	.page.active {
+		display: block;
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.home-grid {
+		display: flex;
+		flex-direction: column;
+		height: auto;
+		min-height: 0;
+		width: 100%;
+		overflow: visible;
+		gap: 24px;
+	}
+
+	.titles-section,
+	.projects-section,
+	.about-section,
+	.gallery-section {
+		height: auto;
+		min-height: 0;
+		width: 100%;
+		padding: 0;
+		overflow: visible;
+	}
+
+	.titles-section {
+		align-items: center;
+		text-align: center;
+		gap: 8px;
+	}
+
+	.title-row {
+		font-size: clamp(1.85rem, 9vw, 2.8rem);
+		line-height: 1.05;
+		margin-bottom: 0;
+	}
+
+	.font-ugc {
+		font-size: clamp(2.05rem, 10vw, 3rem);
+	}
+
+	.red-text {
+		min-width: 0;
+		text-align: inherit;
+	}
+
+	.projects-section {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: none;
+		align-content: stretch;
+		align-items: stretch;
+		justify-items: stretch;
+		gap: 14px;
+	}
+
+	.project-card {
+		height: auto;
+		min-height: 104px;
+		width: 100%;
+		padding: 12px;
+		border-radius: 22px;
+		align-items: center;
+		transform: none;
+	}
+
+	.project-card:hover {
+		transform: none;
+	}
+
+	.project-card::before {
+		width: min(42vw, 170px);
+	}
+
+	.card-img {
+		width: clamp(72px, 22vw, 96px);
+		height: clamp(72px, 22vw, 96px);
+		margin-right: 12px;
+		border-radius: 14px;
+		flex: 0 0 auto;
+	}
+
+	.card-text {
+		min-width: 0;
+		flex: 1;
+	}
+
+	.card-text h4 {
+		font-size: clamp(1rem, 4.4vw, 1.25rem);
+		white-space: normal;
+		line-height: 1.05;
+		overflow: visible;
+		text-overflow: clip;
+	}
+
+	.card-text p {
+		font-size: clamp(0.9rem, 3.8vw, 1.05rem);
+		white-space: normal;
+		line-height: 1.15;
+		overflow: visible;
+		text-overflow: clip;
+	}
+
+	.about-section h2 {
+		font-size: clamp(2rem, 9vw, 3rem);
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.about-section p {
+		font-size: clamp(1rem, 4.2vw, 1.2rem);
+		line-height: 1.35;
+		text-align: left;
+	}
+
+	.gallery-section {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 14px;
+	}
+
+	.gallery-col {
+		height: auto;
+		gap: 14px;
+	}
+
+	.gallery-img,
+	.col-left .gallery-img {
+		height: auto;
+		max-height: none;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: 22px;
+	}
+
+	.contact-content {
+		height: auto;
+		min-height: calc(100dvh - 160px);
+		padding: 24px 0 0;
+		text-align: center;
+	}
+}
+
+@media (max-width: 480px) {
+	.nav-link {
+		font-size: 17px;
+	}
+
+	.nav-icon {
+		width: 28px;
+	}
+
+	.brand-name {
+		font-size: 23px;
+	}
+
+	.page {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+
+	.home-grid {
+		gap: 22px;
+	}
+
+	.project-card {
+		min-height: 96px;
+		border-radius: 18px;
+	}
+
+	.card-img {
+		width: 70px;
+		height: 70px;
+		margin-right: 10px;
+	}
+
+	.card-text h4 {
+		font-size: 1rem;
+	}
+
+	.card-text p {
+		font-size: 0.88rem;
+	}
+
+	.portfolio-container {
+		width: 100%;
+		padding: 20px 0;
+	}
+
+	.modal-content {
+		max-width: 92%;
+		max-height: 78%;
+	}
+
+	.close-modal {
+		top: 16px;
+		right: 22px;
+		font-size: 44px;
+	}
+}
